@@ -20,7 +20,7 @@ function renderPage() {
     contentContainer.style.opacity = 0;
     
     // Update background based on language
-    const bgImage = currentLanguage === 'amharic' ? './bg_amharic_temp.jpg' : './bg_oromic_temp.jpg';
+    const bgImage = currentLanguage === 'amharic' ? '/bg_amharic_temp.jpg' : '/bg_oromic_temp.jpg';
     dynamicBg.style.backgroundImage = `url(${bgImage})`;
     
     setTimeout(() => {
@@ -37,7 +37,7 @@ function renderPage() {
             contentContainer.innerHTML = `
                 <div class="cover-page">
                     <div class="author-photo-wrapper">
-                        <img src="./author-placeholder.jpg" alt="Ahmedin Jebal (Placeholder)" class="author-photo" />
+                        <img src="/author-placeholder.jpg" alt="Ahmedin Jebal (Placeholder)" class="author-photo" />
                     </div>
                     <h1 class="book-title">${pageData.title}</h1>
                     <p class="book-subtitle">${pageData.subtitle}</p>
