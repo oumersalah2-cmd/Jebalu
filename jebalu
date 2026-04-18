@@ -1,0 +1,62 @@
+# Dynamic Multilingual Story Website
+
+This project will build a highly polished, responsive, and interactive website to host a 10-page story by Ahmedin Jebal. The site will utilize a dynamic JavaScript architecture to seamlessly switch languages without page reloads.
+
+## User Review Required
+
+> [!IMPORTANT]
+> Please review the open questions below to clarify the requirements before we proceed with development.
+
+## Proposed Changes
+
+We will build the site using modern **Vanilla JavaScript, HTML, and CSS**, bundled with Vite for an optimal developer experience and optimized production build.
+
+### Core Architecture
+
+- **Project Foundation**: Vanilla JS + HTML + CSS (bundled with Vite for fast local development).
+- **Languages**: Out-of-the-box support for **Amharic** and **Oromic**.
+- **Data Management**: Story content stored in `content.json`. A dropdown will update text instantly without reloads.
+- **Pagination**: We will use a **"Next / Previous" chapter format**. This looks highly professional, much like a Kindle or medium article, preventing the fatigue of scrolling a massive wall of text.
+- **Author Presentation**: The very first page will act as a cover, featuring a beautifully framed section for the **author's photo** (Ahmedin Jebal), a title, and a brief intro.
+
+---
+
+### Design System and Aesthetics
+> [!TIP]  
+> We will aim for a **Premium Reading Experience**.
+
+- **Typography**: Clean, highly legible fonts optimized for long-form reading (e.g., *Inter* or *Merriweather* for English, and suitable fonts for Amharic/Arabic if requested).
+- **Theme**: We will implement a sleek UI with smooth gradients, soft shadows (glassmorphism), and a **Dark Mode / Light Mode** toggle, which is essential for reading.
+- **Micro-animations**: Subtle hover effects, smooth chapter transitions, and elegant fading when switching languages.
+
+### Components
+
+#### [NEW] `index.html`
+The main shell of the application containing the Navbar (Language Dropdown, Theme Toggle), the Reader Container, and Pagination Controls.
+
+#### [NEW] `style.css`
+Advanced custom CSS utilizing CSS Variables for theming, flexbox/grid for layout, and modern animations.
+
+#### [NEW] `main.js`
+The core logic for:
+- Fetching and parsing the story JSON
+- Handling the language switch
+- Handling chapter navigation (Previous/Next)
+- Toggling Light/Dark mode
+
+#### [NEW] `content.json`
+A structured JSON file that holds the 10 pages for each language.
+
+## Verified Requirements
+
+1. **Languages**: Amharic and Oromic.
+2. **Text**: We will set up the structure and placeholders so you can paste the text yourself once ready.
+3. **Pagination Choice**: Book-style "Next/Previous" buttons with an Author Cover page.
+
+## Verification Plan
+
+### Manual Verification
+- A local Vite dev server will be started and exposed for you to test locally.
+- We will test the language selector to ensure text translates immediately with 0 reloads.
+- We will test the appearance in both Light and Dark mode.
+- We will ensure it is fully responsive and looks great on mobile phones.
