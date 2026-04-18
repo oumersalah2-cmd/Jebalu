@@ -8,6 +8,7 @@ const languageSelect = document.getElementById('language-select');
 const themeToggle = document.getElementById('theme-toggle');
 const moonIcon = document.getElementById('moon-icon');
 const sunIcon = document.getElementById('sun-icon');
+const dynamicBg = document.getElementById('dynamic-bg');
 const body = document.body;
 
 let currentPage = 0;
@@ -17,6 +18,10 @@ const totalPages = contentData.amharic.length; // Assuming same length
 function renderPage() {
     // Add fade out effect
     contentContainer.style.opacity = 0;
+    
+    // Update background based on language
+    const bgImage = currentLanguage === 'amharic' ? './bg_amharic_temp.jpg' : './bg_oromic_temp.jpg';
+    dynamicBg.style.backgroundImage = `url(${bgImage})`;
     
     setTimeout(() => {
         const pageData = contentData[currentLanguage][currentPage];

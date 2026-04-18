@@ -1,7 +1,7 @@
 :root {
   --bg-color: #fcfcfc;
   --text-color: #2c2c2c;
-  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --navbar-bg: rgba(255, 255, 255, 0.95);
   --btn-bg: #f2f2f2;
   --btn-hover: #e0e0e0;
   --border-color: #eaebec;
@@ -13,7 +13,7 @@
 body.dark-mode {
   --bg-color: #121212;
   --text-color: #e0e0e0;
-  --navbar-bg: rgba(18, 18, 18, 0.8);
+  --navbar-bg: rgba(18, 18, 18, 0.95);
   --btn-bg: #2a2a2a;
   --btn-hover: #3d3d3d;
   --border-color: #2c2c2c;
@@ -27,14 +27,33 @@ body.dark-mode {
 }
 
 body {
-  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
   color: var(--text-color);
   font-family: var(--font-primary);
   line-height: 1.8;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: color 0.4s ease;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+#dynamic-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+  transition: background-image 0.5s ease;
+}
+
+/* Semi-transparent overlay to ensure text is somewhat readable if reader container isn't full width */
+#dynamic-bg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* Typography styles injected dynamically */
@@ -112,11 +131,16 @@ button {
 .reader-container {
   flex: 1;
   max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 40px 20px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 50px 40px;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  z-index: 10;
+  transition: background-color 0.4s ease;
 }
 
 #content-container {
@@ -228,6 +252,12 @@ button {
 }
 
 @media (max-width: 600px) {
+  .reader-container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
   .book-title { font-size: 2.2rem; }
   .book-subtitle { font-size: 1.1rem; }
   .nav-btn { padding: 10px 16px; font-size: 0.9rem; }
