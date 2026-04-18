@@ -175,11 +175,19 @@ button {
   padding: 8px;
   background: linear-gradient(135deg, var(--accent), #ff6b6b);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: floatProfile 6s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
 
+@keyframes floatProfile {
+  0% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  50% { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+  100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+}
+
 .author-photo-wrapper:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
+  animation-play-state: paused;
 }
 
 .author-photo {
@@ -251,16 +259,42 @@ button {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.app-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.app-footer p {
+  margin: 5px 0;
+}
+
+.app-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .reader-container {
     width: 95%;
     margin: 20px auto;
-    padding: 30px 20px;
+    padding: 30px 15px;
     border-radius: 12px;
   }
-  .book-title { font-size: 2.2rem; }
+  .book-title { font-size: 2rem; }
   .book-subtitle { font-size: 1.1rem; }
   .nav-btn { padding: 10px 16px; font-size: 0.9rem; }
-  .author-photo-wrapper { width: 200px; height: 200px; }
+  .author-photo-wrapper { width: 180px; height: 180px; }
   #content-container { font-size: 1.05rem; }
+  .text-page p { margin-bottom: 1.4em; }
 }
